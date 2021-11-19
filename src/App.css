@@ -2,3 +2,8 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 20px 60px;
 }
+
+a {
+  color: #333;
+  text-decoration: none;
+}
