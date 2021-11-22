@@ -1,15 +1,17 @@
 import React from "react"
 import FormInput from "../form-input/form-input.component"
 import CustomButton from "../custom-button/custom-button.component"
-import "./sign-in.style.scss"
+import "./sign-up.style.scss"
 import { signInWithGoogle } from "../../firebase/firebase.ultils"
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: "",
       email: "",
       password: "",
+      confirmPassword: "",
     }
   }
 
@@ -24,12 +26,20 @@ class SignIn extends React.Component {
   }
 
   render() {
-    const { email, password } = this.state
+    const { name, email, password, confirmPassword } = this.state
     return (
-      <div className="sign-in">
-        <h2>I already have an account</h2>
-        <span>Sign in with your email and password</span>
+      <div className="sign-up">
+        <h2>I do have not account</h2>
+        <span>Sign up with your email and password</span>
         <form onSubmit={this.handleSubmit}>
+          <FormInput
+            type="name"
+            label="Name"
+            name="name"
+            value={name}
+            handleChange={this.handleOnchange}
+            required
+          />
           <FormInput
             type="email"
             label="Email"
@@ -44,12 +54,17 @@ class SignIn extends React.Component {
             name="password"
             value={password}
             handleChange={this.handleOnchange}
+            required
+          />
+          <FormInput
+            type="password"
+            label="ConfirmPassword"
+            name="confirmPassword"
+            value={confirmPassword}
+            handleChange={this.handleOnchange}
           />
           <div className="button">
-            <CustomButton type="submit">Sign In</CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGooleSignIn={true}>
-              Sign In With Google
-            </CustomButton>
+            <CustomButton type="submit">Sign up</CustomButton>
           </div>
         </form>
       </div>
@@ -57,4 +72,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn
+export default SignUp
