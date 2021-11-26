@@ -8,7 +8,6 @@ const INITIAL_STATE = {
 const cartReducer = (state = INITIAL_STATE, actions) => {
   switch (actions.type) {
     case cartActionTypes.TOGGLE_CART_ITEM:
-      console.log("2")
       return {
         ...state,
         isToggle: !state.isToggle,
@@ -17,6 +16,14 @@ const cartReducer = (state = INITIAL_STATE, actions) => {
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, actions.payload),
+      }
+    case cartActionTypes.CLEAR_CART_ITEM:
+      const newCartItems = state.cartItems.filter(
+        (item) => item.id !== actions.payload.id
+      )
+      return {
+        ...state,
+        cartItems: newCartItems,
       }
     default:
       return state

@@ -2,7 +2,6 @@ import React from "react"
 import "./cart-item-added.style.scss"
 
 const CartItemAdded = ({ item: { imageUrl, name, quantity, price } }) => {
-  console.log(imageUrl, name, quantity, "data--")
   return (
     <div className="cart-item">
       {/* <div className="img" style={{ background: `url(${imageUrl})` }}></div> */}

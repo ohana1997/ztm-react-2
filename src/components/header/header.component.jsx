@@ -6,7 +6,8 @@ import { auth } from "../../firebase/firebase.ultils"
 import CartIcon from "../cart-item/cart-item.component"
 import CartDropDown from "../cart-dropdown/cart-dropdown.component"
 import { connect } from "react-redux"
-const Header = ({ currentUser, isToggle, cartItems }) => {
+
+const Header = ({ currentUser, isToggle }) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -36,11 +37,10 @@ const Header = ({ currentUser, isToggle, cartItems }) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log("3")
   return {
     isToggle: state.cart.isToggle,
     cartItems: state.cart.cartItems,
   }
 }
 
-export default connect(mapStateToProps, null)(Header)
+export default connect(mapStateToProps)(Header)
