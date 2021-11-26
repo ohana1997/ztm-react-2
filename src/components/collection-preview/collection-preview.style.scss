@@ -13,3 +13,9 @@
     justify-content: space-between;
   }
 }
+@media only screen and (max-width: 600px) {
+  .collection-preview {
+    display: flex;
+    flex-direction: row;
+  }
+}

@@ -12,9 +12,15 @@ const CartIcon = ({ toggleCartItem, countItemAdded }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  countItemAdded: state.cart.cartItems.length,
-})
+const mapStateToProps = (state) => {
+  const countItem = state.cart.cartItems.reduce((pre, cur) => {
+    console.log("object", pre, cur)
+    return pre + cur.quantity
+  }, 0)
+  return {
+    countItemAdded: countItem,
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
